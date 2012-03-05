@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Component</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8" src="../lib/bin/sizzle.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		
+		window.onload = window_onLoad;
+		
+		function window_onLoad() {
+			var ctr_div = new Component($("#div")[0]);
+			//ctr_div.setWidth("600px");
+			//ctr_div.setCss("border", "solid 1px black");
+			//ctr_div.setWidth(500);
+			trace("ctr_div", "width", ctr_div.getWidth());
+			//trace(ctr_div.getHeight());
+			
+			var timer = new Timer(10, 100);
+			timer.addEventListener(TimerEvent.TIMER, timer_timer);
+			timer.start();
+			
+			function timer_timer(e) {
+				ctr_div.setWidth(ctr_div.getWidth()+10);
+			}
+		}
+		
+	</script>
+	
+	<style type="text/css">
+		#div {
+			display: block;
+			width: 200px;
+			height: 200px;
+			border: solid 1px red;
+			background: #ff00ff;
+		}
+	</style>
+
+</head>
+<body>
+	<div id="div">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?php
+	require 'JSBuild.php';
+	
+	$build 	= new JSBuild("geleca.1.0.js");
+	$src 	= "../src/";
+	$lib 	= "../lib/";
+	
+	//$build->addFilesBySearch($lib, "*.js");
+	//$build->addFilesBySearch($src, "*.js");
+
+	$build->addFile($src."com/geleca/js/core/Object.js");	
+	$build->addFile($src."com/geleca/js/core/Array.js");
+	$build->addFile($src."com/geleca/js/core/Core.js");
+	$build->addFile($src."com/geleca/js/core/JSON.js");
+	$build->addFile($src."com/geleca/js/core/Number.js");
+	
+	$build->addFile($src."com/geleca/js/component/Component.js");
+	
+	$build->addFile($src."com/geleca/js/debugger/GLog.js");
+	
+	$build->addFile($src."com/geleca/js/events/Event.js");
+	$build->addFile($src."com/geleca/js/events/DataEvent.js");
+	$build->addFile($src."com/geleca/js/events/EventDispatcher.js");
+	$build->addFile($src."com/geleca/js/events/TimerEvent.js");
+	
+	$build->addFile($src."com/geleca/js/test/Assert.js");
+	$build->addFile($src."com/geleca/js/util/FunctionUtil.js");
+	$build->addFile($src."com/geleca/js/util/Timer.js");
+	
+	$build->addFile($src."com/geleca/js/effects/tween/GTween.js");
+
+	
+	//$build->build(false);
+	$build->build(true);
+?>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Selector</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8">
+		function $(query) {
+			return document.querySelectorAll(query);
+		}
+		
+		window.onload = window_onLoad;
+		
+		function window_onLoad() {
+			var id_test = document.getElementById("id_test");
+			//var id_test_inside = id_test.getElementById("id_test_inside");
+			
+			console.log(document.getElementById("id_test id_test_inside"));
+			
+			console.log($("#id_test ul li"));
+		}
+		
+	</script>
+</head>
+<body>
+	<div id="id_test">
+		<div id="id_test_inside"></div>
+		<ul>
+			<li></li>
+		</ul>
+	</div>
+	<div id="id_test2"></div>
+</body>
+</html>

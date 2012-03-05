@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Timer</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		var timer = new Timer(1000, 3);
+		timer.addEventListener(TimerEvent.TIMER, timer_timer);
+		timer.start();
+		
+		function timer_timer(e) {
+			trace("timer_timer", "currentCount", e.target.currentCount);
+		}
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

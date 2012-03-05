@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>assert</title>
+	<meta name="author" content="Cristiano Caldas">
+	<!-- Date: 2012-02-26 -->
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	
+	<script type="text/javascript" charset="utf-8">
+		//function
+		Assert.isFunction(function(){}, "is not a Function!");
+		//Assert.isFunction(32, "is not a Function!");
+		
+		//number
+		Assert.isNumber(32, "is not a Number!");
+		//Assert.isNumber(function(){}, "Function is not a Number!");
+		
+		//equals
+		Assert.isEquals("test", "test", "is not Equals!");
+		//Assert.isEquals(123, "test", "is not Equals!");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

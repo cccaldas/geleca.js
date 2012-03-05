@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>oop</title>
+	<meta name="author" content="Cristiano Caldas">
+	<!-- Date: 2012-02-26 -->
+	
+	<script type="text/javascript" charset="utf-8">
+
+		Function.prototype.extend = function(_class) {
+			this.prototype.super = function() {
+				var _super = new _class(arguments[0],
+										arguments[1],
+										arguments[2],
+										arguments[3],
+										arguments[4],
+										arguments[5],
+										arguments[6],
+										arguments[7],
+										arguments[8],
+										arguments[9]
+										);
+										
+				for (var key in _super)
+					this[key] = _super[key];
+			}
+			
+			return this;
+		}
+		
+		function Machine() {			
+			this.getType = function() { return "MachineMetalType"; };
+		}
+		
+		Car.extend(Machine);
+		function Car(name, color) {
+			this.super();
+			
+			var _name 	= name;
+			var _color 	= color;
+			
+			this.getName = function(){ return _name; };
+			this.setName = function(value){ _name = value; };
+			
+			this.getColor = function(){ return _color; };
+			this.setColor = function(value) { _color = value; };
+		}
+		
+		Camaro.extend(Car);
+		function Camaro() {
+			this.super("Camaro", "Yellow");
+		}
+		
+		CamaroRed.extend(Camaro);
+		function CamaroRed() {
+			this.super();
+			this.setColor("Red");
+		}
+		
+		var car = new CamaroRed();
+		console.log(car.getType());
+		console.log(car.getName());
+		console.log(car.getColor());
+		
+	</script>
+</head>
+<body>
+
+</body>
+</html>

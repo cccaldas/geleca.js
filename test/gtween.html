@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>GTween</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8" src="../lib/bin/sizzle.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		window.onload = window_onLoad;
+		
+		function window_onLoad() {
+			var ctr_div = new Component($("#div")[0]);
+			GTween.addTween(ctr_div, {time:.8, width:800, alpha:0, onComplete:tween_complete, onUpdate:tween_update});
+			
+			function tween_update() {
+				trace("tween_update");
+			}
+			
+			function tween_complete() {
+				trace("tween_complete");
+			}
+		}
+	</script>
+	
+	<style type="text/css">
+		#div {
+			display: block;
+			width: 200px;
+			height: 200px;
+			border: solid 1px red;
+			background: #ff00ff;
+		}
+	</style>
+</head>
+<body>
+	<div id="div">
+		
+	</div>
+</body>
+</html>

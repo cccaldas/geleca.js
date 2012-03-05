@@ -1,0 +1,9 @@
+--- selector integration (sizzle)
++	component structure
+
+::GTween
++	add easy equations
+#	add onComplete
++	add onUpdate
++	add removeTweens
+

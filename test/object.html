@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>object</title>
+	<meta name="author" content="Cristiano Caldas">
+	<!-- Date: 2012-02-26 -->
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	
+		function Machine() {
+			
+		}
+
+		Car.extend(Machine);
+		function Car(name, color, velocity) {
+			this.name 		= name;
+			this.color 		= color;
+			this.velocity 	= velocity;
+			this.company 	= "GM";
+			
+			
+			
+			trace(this);
+		}
+		
+		Camaro.extend(Car);
+		function Camaro() {
+			this._super("Camaro", "yellow", 260);
+			this.company = "Chevrolet";
+			
+			
+			
+			trace(this);
+		}
+		
+		CamaroRed.extend(Camaro);
+		function CamaroRed() {
+			this._super();
+			this.color = "red";
+			
+			var _speed = 1;
+			
+			this.getSpeed = function() { trace(this); return _speed; };
+			
+			trace(this);
+		}
+		
+		var camaro = new CamaroRed();
+		trace(camaro.color);
+		trace(camaro.getSpeed());
+		
+		for (var i=0; i < 20; i++) {
+			FunctionUtil.functionDelay(function() { trace(camaro.getSpeed());  }, .3 * i);
+			
+			//trace(this);
+		};
+	</script>
+</head>
+<body>
+
+</body>
+</html>
