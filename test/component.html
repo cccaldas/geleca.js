@@ -4,24 +4,47 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Component</title>
-	<meta name="author" content="Cristiano Caldas">
-	<script type="text/javascript" charset="utf-8" src="../lib/bin/sizzle.js"></script>
+	<meta name="author" content="Cristiano Caldas" />
+	<script type="text/javascript" charset="utf-8" src="../lib/bin/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
 	<script type="text/javascript" charset="utf-8">
 		
 		window.onload = window_onLoad;
 		
 		function window_onLoad() {
-			var ctr_div = new Component($("#div")[0]);
-			//ctr_div.setWidth("600px");
-			//ctr_div.setCss("border", "solid 1px black");
-			//ctr_div.setWidth(500);
-			trace("ctr_div", "width", ctr_div.getWidth());
-			//trace(ctr_div.getHeight());
 			
-			var timer = new Timer(10, 100);
-			timer.addEventListener(TimerEvent.TIMER, timer_timer);
-			timer.start();
+			var width 	= 500;
+			var height 	= 100;
+			var left 	= 200;
+			var top 	= 200;
+			var alpha 	= .3;
+			
+			var ctr_div = new Component($("#div")[0]);
+			ctr_div.setWidth(width);
+			ctr_div.setHeight(height);
+			ctr_div.setLeft(left);
+			ctr_div.setTop(top);
+			ctr_div.setAlpha(alpha);
+			
+			Assert.isEquals(ctr_div.getWidth(), 	width, 	"width failed!");
+			Assert.isEquals(ctr_div.getHeight(), 	height, "height failed!");
+			Assert.isEquals(ctr_div.getLeft(), 		left, 	"left failed!");
+			Assert.isEquals(ctr_div.getTop(), 		top, 	"top failed!");
+			
+			ctr_div.setAlpha(0);
+			FadeTransition.fadeIn(ctr_div.asset, 1.2);
+			FunctionUtil.functionDelay(function() {
+				FadeTransition.fadeOut(ctr_div.asset, 1.2);
+			}, 2);
+			
+			//Assert.isEquals(ctr_div.getAlpha(), 	alpha, 	"alpha failed!");
+			
+			//ctr_div.setVisible(false);
+			
+			//trace("ctr_div", "width", ctr_div.getWidth());
+			//trace("ctr_div", "width", ctr_div.getCss("width"));
+			
+			//trace(ctr_div.getWidth());
 			
 			function timer_timer(e) {
 				ctr_div.setWidth(ctr_div.getWidth()+10);
@@ -32,6 +55,7 @@
 	
 	<style type="text/css">
 		#div {
+			position: relative;
 			display: block;
 			width: 200px;
 			height: 200px;

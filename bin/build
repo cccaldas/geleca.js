@@ -15,6 +15,11 @@
 	$build->addFile($src."com/geleca/js/core/Number.js");
 	
 	$build->addFile($src."com/geleca/js/component/Component.js");
+	$build->addFile($src."com/geleca/js/component/button/Button.js");
+	$build->addFile($src."com/geleca/js/component/preloader/Preloader.js");
+	
+	$build->addFile($src."com/geleca/js/component/form/Input.js");
+	$build->addFile($src."com/geleca/js/component/form/TextInput.js");
 	
 	$build->addFile($src."com/geleca/js/debugger/GLog.js");
 	
@@ -22,12 +27,34 @@
 	$build->addFile($src."com/geleca/js/events/DataEvent.js");
 	$build->addFile($src."com/geleca/js/events/EventDispatcher.js");
 	$build->addFile($src."com/geleca/js/events/TimerEvent.js");
+	$build->addFile($src."com/geleca/js/events/ProgressEvent.js");
+	$build->addFile($src."com/geleca/js/events/MouseEvent.js");
+	$build->addFile($src."com/geleca/js/events/KeyboardEvent.js");
+	$build->addFile($src."com/geleca/js/events/FocusEvent.js");
+	
+	$build->addFile($src."com/geleca/js/loading/GLoader.js");
+	$build->addFile($src."com/geleca/js/loading/LoaderItem.js");
 	
 	$build->addFile($src."com/geleca/js/test/Assert.js");
 	$build->addFile($src."com/geleca/js/util/FunctionUtil.js");
 	$build->addFile($src."com/geleca/js/util/Timer.js");
+	$build->addFile($src."com/geleca/js/util/StringUtil.js");
+	$build->addFile($src."com/geleca/js/util/TextUtil.js");
+	$build->addFile($src."com/geleca/js/util/NumberFormatter.js");
+	$build->addFile($src."com/geleca/js/util/DateUtil.js");
+	
+	$build->addFile($src."com/geleca/js/ui/KeyBoard.js");
+	
+	$build->addFile($src."com/geleca/js/geom/Rectangle.js");
+	
+	$build->addFile($src."com/geleca/js/date/DateTime.js");
+	$build->addFile($src."com/geleca/js/date/Month.js");
+	$build->addFile($src."com/geleca/js/date/Year.js");
+	
+	$build->addFile($src."com/geleca/js/i18n/LangEnum.js");
 	
 	$build->addFile($src."com/geleca/js/effects/tween/GTween.js");
+	$build->addFile($src."com/geleca/js/effects/transition/FadeTransition.js");
 
 	
 	//$build->build(false);

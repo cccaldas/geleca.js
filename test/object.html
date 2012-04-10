@@ -9,18 +9,18 @@
 	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
 	<script type="text/javascript" charset="utf-8">
 	
+		Machine.extend(EventDispatcher);
 		function Machine() {
-			
+			this._super();
 		}
 
 		Car.extend(Machine);
 		function Car(name, color, velocity) {
+			this._super();
 			this.name 		= name;
 			this.color 		= color;
 			this.velocity 	= velocity;
 			this.company 	= "GM";
-			
-			
 			
 			trace(this);
 		}
@@ -40,9 +40,15 @@
 			this._super();
 			this.color = "red";
 			
+			var self = this;
+			
 			var _speed = 1;
 			
 			this.getSpeed = function() { trace(this); return _speed; };
+			
+			FunctionUtil.functionDelay(function(){
+				self.dispatchEvent(new Event(Event.COMPLETE));
+			}, .1);
 			
 			trace(this);
 		}
@@ -50,9 +56,16 @@
 		var camaro = new CamaroRed();
 		trace(camaro.color);
 		trace(camaro.getSpeed());
+		camaro.addEventListener(Event.COMPLETE, camaro_complete);
+		
+		function camaro_complete(e) {
+			trace("camaro_complete");
+			
+			camaro.removeEventListener(Event.COMPLETE, camaro_complete);
+		}
 		
 		for (var i=0; i < 20; i++) {
-			FunctionUtil.functionDelay(function() { trace(camaro.getSpeed());  }, .3 * i);
+			//FunctionUtil.functionDelay(function() { trace(camaro.getSpeed());  }, .3 * i);
 			
 			//trace(this);
 		};

@@ -1,9 +1,19 @@
 --- selector integration (sizzle)
 +	component structure
 
+::Component
+#	startDrag
++	startDrag, mouseMove outside
+
 ::GTween
 +	add easy equations
 #	add onComplete
-+	add onUpdate
-+	add removeTweens
+#	add onUpdate
+#	add removeTweens
+
+::GLoader
++	JSON loader
++	YAML loader
+
++	StatsMonitor
 

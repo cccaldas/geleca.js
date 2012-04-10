@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Drag</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8" src="../lib/bin/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		
+		$(document).ready(function() {
+			var slider = new Slider($("#slider")[0]);			
+		});
+		
+		Slider.extend(Component);
+		function Slider(asset) {
+			this._super(asset);
+			var self = this;
+			
+			var tracker = new Button($(".tracker", asset)[0]);
+			tracker.addEventListener(MouseEvent.MOUSE_DOWN, tracker_mouseDown);
+			tracker.addEventListener(MouseEvent.MOUSE_UP, 	tracker_mouseUp);
+		
+			function tracker_mouseDown(e) {
+				//tracker.startDrag(new Rectangle(0, 0, self.getWidth() - tracker.getWidth(), 0));
+				tracker.startDrag(new Rectangle(0, 0, self.getWidth() - tracker.getWidth(), self.getHeight() - tracker.getHeight()));
+			}
+			
+			function tracker_mouseUp(e) {
+				tracker.stopDrag();				
+			}
+		}
+		
+	</script>
+	
+	<style type="text/css">
+		* {
+			
+		}
+		
+		body {
+			padding: 10px;
+		}
+		
+		#slider {
+			width: 200px;
+			height: 200px;
+			background: #ccc;
+		}
+		
+		#slider .tracker {
+			cursor: pointer;
+			display: inline-block;
+			position: relative;
+			width: 50px;
+			height: 30px;
+			background: red;
+			opacity: 0.7;
+			-moz-opacity: 0.7;
+			filter:alpha(opacity=70);
+		}
+		
+		.container {
+			padding: 100px;
+		}
+		
+		
+	</style>
+
+</head>
+<body>
+	<div class="container">
+		<div id="slider">
+			<div class="tracker"></div>
+		</div>
+	</div>
+	
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+	
+</body>
+</html>

@@ -10,14 +10,14 @@ function EventDispatcher(){
 			_events[type] = [];
 			
 		_events[type].push(callBack);
-	}
+	};
 	
 	this.removeEventListener = function(type, callBack) {		
 		if(_events[type] == undefined)
 			return;
 			
 		_events[type].splice(_events[type].indexOf(callBack), 1);
-	}
+	};
 	
 	this.dispatchEvent = function(evt) {
 		if(_events[evt.type] == undefined)
@@ -31,9 +31,9 @@ function EventDispatcher(){
 		for (var i=0; i < _events[evt.type].length; i++) {
 			_events[evt.type][i](evt);
 		};
-	}
+	};
 	
 	this.removeAll = function() {
 		_events = {};
-	}
+	};
 }

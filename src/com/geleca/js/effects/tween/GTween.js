@@ -1,4 +1,18 @@
 GTween = {};
+
+GTween.removeTweens = function(target) {
+	var tweens = target["__tweens"];
+	
+	if(tweens == undefined)
+		return;
+	
+	for (var i=0; i < tweens.length; i++) {
+		tweens[i].stop();
+	};
+	
+	delete target["__tweens"];
+};
+
 GTween.addTween = function(target, props) {
 	var timer = new Timer(10, (props.time * 1000) / 10);
 	timer.addEventListener(TimerEvent.TIMER, timer_timer);
@@ -18,6 +32,11 @@ GTween.addTween = function(target, props) {
 		//trace(getSetter(prop));
 	}
 	
+	
+	if(target["__tweens"] == undefined)
+		target["__tweens"] = [];
+		
+	target["__tweens"].push(timer);
 	
 	timer.start();
 	function timer_timer(e) {

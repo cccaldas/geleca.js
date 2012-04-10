@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>TextInput</title>
+	<meta name="author" content="Cristiano Caldas">
+	<script type="text/javascript" charset="utf-8" src="../lib/bin/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="../bin/geleca.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		
+		$(document).ready(function() {
+			var txt_nome = new TextInput($(".txt_nome")[0]);
+			txt_nome.setRestrict("0123456789");
+			txt_nome.addEventListener(KeyboardEvent.KEY_UP, txt_nome_keyUp);
+			
+			function txt_nome_keyUp(e) {
+				trace("txt_nome_keyUp", txt_nome.getText());
+			}
+		});
+		
+	</script>
+
+</head>
+<body>
+	
+	<p><input type="text" class="txt_nome" /></p>
+	
+</body>
+</html>
